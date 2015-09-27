@@ -1,4 +1,5 @@
-var express = require('express'),
+var http = require('http'),
+    express = require('express'),
     app = express(),
     cookieParser = require('cookie-parser'),
     bodyParser = require('body-parser'),
@@ -109,4 +110,4 @@ app.put('/api/user', function (req, res) {
     }
 });
 
-app.listen(8080);
+app.listen(80);
