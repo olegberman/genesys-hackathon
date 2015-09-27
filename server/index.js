@@ -53,7 +53,7 @@ app.get('/api/token', function (req, res) {
         tokenToUser[token] = user;
         setTimeout(function () {
             tokenToUser[token] = undefined;
-        }, 30000);
+        }, 300000);
         url = 'http://69.204.255.92/api/text/send?' +
                 'to=' + encodeURIComponent(user.phoneNumber) +
                 '&msg=' + encodeURIComponent(token);
