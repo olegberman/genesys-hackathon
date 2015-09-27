@@ -1,0 +1,25 @@
+<section ng-if="user">
+  <div class="container-fluid profile block-center">
+    <div class="row">
+      <div class="col-xs-4">
+        <img ng-src="{{ user.photo }}" class="img-responsive user-photo" />
+      </div>
+      <div class="col-xs-8 full-name">
+        <h3>{{ user.firstName }} {{ user.lastName }}</h3>
+        <p class="user-last-seen">online 1 minute ago</p>
+        <b>Phone number: </b> {{ user.phoneNumber }}<br />
+        <b>About me</b>
+        <p class="user-about">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+        </p>
+        <div class="row">
+          <div class="col-xs-12">
+            <button type="button" class="btn btn-change-password btn-primary">
+              Change password
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

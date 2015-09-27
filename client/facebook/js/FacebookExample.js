@@ -1,12 +1,24 @@
 angular.module('FacebookExample', [])
 
-.controller('FacebookExampleController', function($scope, $http, $timeout) {
+.controller('FacebookExampleController', function($scope, $http) {
 
   $scope.usernameInvalid = false;
   $scope.passwordInvalid = false;
 
   $scope.hasSession  = false;
   $scope.ajaxLoading = false;
+
+  var getUser = function() {
+    var userRequest = $http.get('/api/user');
+    userRequest.then(function(user) {
+      $scope.user = user.data;
+      $scope.hasSession = true;
+    }, function() {
+
+    });
+  };
+
+  getUser();
 
   $scope.login = function(username, password) {
 

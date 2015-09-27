@@ -1,13 +1,22 @@
 body {
   margin: 0;
   padding: 0;
-  background: #ffffff;
+  background: #f9f9f9;
   font-family: 'Open Sans', sans-serif;
 }
 
 header {
   background-color: #46629b;
   height: 40px;
+}
+
+footer {
+  padding: 8px 0;
+  background-color: #555555;
+  text-align: center;
+  color: #ffffff;
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
 }
 
 .loader-overlay {
@@ -46,4 +55,34 @@ header {
 .login-form {
   width: 98%;
   max-width: 500px;
+}
+
+.profile {
+  max-width: 751px;
+  margin-top: 40px;
+}
+
+.full-name h3 {
+  margin: 0;
+  text-transform: capitalize;
+}
+
+.user-photo {
+  border-radius: 4px;
+}
+
+.user-last-seen {
+  color: #999999;
+  margin-top: 3px;
+  font-size: 12px;
+}
+
+.user-about {
+  background-color: #ffffff;
+  border-radius: 7px;
+  font-size: 12px;
+}
+
+.btn-change-password {
+  width: 100%;
 }
