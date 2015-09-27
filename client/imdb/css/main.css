@@ -1,0 +1,28 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000000;
+  font-family: 'Open Sans', sans-serif;
+  color: #ffffff;
+}
+
+footer {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  color: #ffffff;
+  text-align: center;
+}
+
+h1, h2, h3, h4, h5, p {
+  font-weight: 300;
+}
+
+.login-button-wrap {
+  width: 80%;
+  max-width: 600px;
+  padding-top: 80px;
+}
+
+.login-with-button {
+  margin-top: 40px;
+}

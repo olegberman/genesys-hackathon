@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="IMDBExample">
+  <head>
+    <meta charset="utf-8">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="/lib/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="/imdb/css/main.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <script type="text/javascript" src="/lib/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="/lib/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/lib/angular.min.js"></script>
+    <title>IMDB Auth Example</title>
+  </head>
+  <body>
+    <main ng-controller="IMDBExampleController">
+      <header></header>
+
+      <section class="content">
+        <ng-include src="'/imdb/templates/login.html'"></ng-include>
+      </section>
+
+      <footer>
+        Hacked at Genesys ;)
+      </footer>
+      <div class="loader-overlay" ng-if="ajaxLoading">
+        <i class="fa fa-cog fa-spin"></i>
+      </div>
+    </main>
+    <script type="text/javascript" src="/imdb/js/IMDBExample.js"></script>
+  </body>
+</html>
