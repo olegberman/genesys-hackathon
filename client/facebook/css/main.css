@@ -20,6 +20,10 @@ header {
   background-color: #3F598D;
 }
 
+.has-error input {
+  background-color: #FFCCD9;
+}
+
 .content {
   padding: 20px 0;
 }

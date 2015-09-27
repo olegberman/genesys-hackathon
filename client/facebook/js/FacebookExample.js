@@ -1,16 +1,22 @@
 angular.module('FacebookExample', [])
 
 .controller('FacebookExampleController', function($scope, $http) {
-  $scope.test = '1';
+
+  $scope.username = '';
+  $scope.password = '';
+  $scope.usernameInvalid = false;
+  $scope.passwordInvalid = false;
 
   $scope.login = function() {
 
     if($scope.username.length < 1) {
-      return 1;
+      $scope.usernameInvalid = true;
+      return;
     }
 
     if($scope.password.length < 1) {
-      return 2;
+      $scope.passwordInvalid = true;
+      return;
     }
 
     var loginRequest = $http.post('/api/session',
