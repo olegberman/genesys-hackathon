@@ -30,7 +30,9 @@ I'm going to show you another quick demo before we go:
 Thank you guys very much!
 
 http://twitter.com/hermanhasawish
+
 http://twitter.com/olegberman
 
 http://github.com/hermanya
+
 http://github.com/olegberman
