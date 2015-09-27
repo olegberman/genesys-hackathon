@@ -1,35 +1,41 @@
 angular.module('FacebookExample', [])
 
-.controller('FacebookExampleController', function($scope, $http) {
+.controller('FacebookExampleController', function($scope, $http, $timeout) {
 
-  $scope.username = '';
-  $scope.password = '';
   $scope.usernameInvalid = false;
   $scope.passwordInvalid = false;
 
-  $scope.login = function() {
+  $scope.hasSession  = false;
+  $scope.ajaxLoading = false;
 
-    if($scope.username.length < 1) {
+  $scope.login = function(username, password) {
+
+    if(!username || username.length < 1) {
       $scope.usernameInvalid = true;
       return;
     }
 
-    if($scope.password.length < 1) {
+    if(!password || password.length < 1) {
       $scope.passwordInvalid = true;
       return;
     }
 
     var loginRequest = $http.post('/api/session',
       {
-        username: $scope.username,
-        password: $scope.password
+        username: username,
+        password: password
       }
     );
 
-    loginRequest.then(function(response) {
-      console.log(response);
+    $scope.ajaxLoading = true;
+
+    loginRequest.then(function(user) {
+      $scope.hasSession = true;
+      $scope.ajaxLoading = false;
     }, function(response) {
-      console.log(response);
+      $scope.usernameInvalid = true;
+      $scope.passwordInvalid = true;
+      $scope.ajaxLoading = false;
     });
 
   };

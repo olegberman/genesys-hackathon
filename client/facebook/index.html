@@ -5,7 +5,7 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="/lib/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="/facebook/css/main.css" />
-    <link rel="stylesheet" type="text/css" href="/lib/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <script type="text/javascript" src="/lib/jquery-1.11.3.min.js"></script>
     <script type="text/javascript" src="/lib/bootstrap.min.js"></script>
     <script type="text/javascript" src="/lib/angular.min.js"></script>
@@ -18,27 +18,15 @@
       </header>
 
       <section class="content">
-        <div class="login-form center-block">
-          <div class="form-group" ng-class="{ 'has-error': usernameInvalid }">
-            <label for="username">Username</label>
-            <input ng-model="username" id="username"
-             type="username" class="form-control"
-             placeholder="oleg@google.com"
-             ng-change="usernameInvalid = false" />
-          </div>
-          <div class="form-group" ng-class="{ 'has-error': passwordInvalid }">
-            <label for="password">Password</label>
-            <input ng-model="password" id="password"
-             type="password" class="form-control"
-             ng-change="passwordInvalid = false" />
-          </div>
-          <button class="btn btn-primary pull-right" ng-click="login()">Log in</button>
-        </div>
+        <ng-include src="'/facebook/templates/login.html'"></ng-include>
       </section>
 
       <footer>
 
       </footer>
+      <div class="loader-overlay" ng-if="ajaxLoading">
+        <i class="fa fa-cog fa-spin"></i>
+      </div>
     </main>
     <script type="text/javascript" src="/facebook/js/FacebookExample.js"></script>
   </body>
