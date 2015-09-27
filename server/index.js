@@ -83,6 +83,7 @@ app.put('/api/user', function (req, res) {
                 user[key] = req.body[key];
             }
         });
+        res.json(user);
     } else {
         res.sendStatus(404);
     }
