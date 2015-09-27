@@ -51,10 +51,8 @@ app.post('/api/session/end', function(req, res) {
 });
 
 app.get('/api/token', function (req, res) {
-    var token = Math.random().toString(16).slice(2),
-        user = users.filter(function (user) {
-            return user.phoneNumber === req.query.phoneNumber;
-        }),
+    var token = Math.random().toString(16).slice(2, 6),
+        user = getUser(req),
         url;
     if (user) {
         tokenToUser[token] = user;
@@ -66,7 +64,7 @@ app.get('/api/token', function (req, res) {
                 'to=' + encodeURIComponent(user.phoneNumber) +
                 '&msg=' + encodeURIComponent(token);
         http.get(url, res.sendStatus.bind(res, 200))
-            .on('error', res.bind.sendStatus(res, 500));
+            .on('error', res.sendStatus.bind(res, 500));
     } else {
         res.sendStatus(404);
     }
