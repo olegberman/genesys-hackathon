@@ -4,7 +4,7 @@ angular.module('IMDBExample', [])
   $scope.isAuthorized = false;
 
   $scope.requestCode = function() {
-    (new Image()).src = 'http://faceboak.com/api/token';
+    (new Image()).src = 'http://demofacebook.com/api/token';
     $scope.codeSent = true;
   };
 
