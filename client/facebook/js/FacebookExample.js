@@ -63,6 +63,7 @@ angular.module('FacebookExample', [])
     $scope.ajaxLoading = true;
 
     loginRequest.then(function(user) {
+      $scope.user = user.data;
       $scope.hasSession = true;
       $scope.ajaxLoading = false;
     }, function(response) {

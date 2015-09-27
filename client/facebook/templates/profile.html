@@ -6,7 +6,7 @@
         <img ng-src="{{ user.photo }}" class="img-responsive user-photo" />
       </div>
       <div class="col-xs-8 full-name">
-        <h3>{{ user.firstName }} {{ user.lastName }}</h3>
+        <h3>{{ user.firstName }} {{ user.lastName }} <a href="/api/session/end" class="btn btn-default pull-right">Log out</a></h3>
         <p class="user-last-seen">online 1 minute ago</p>
         <b>Phone number: </b> {{ user.phoneNumber }}<br />
         <b>About me:</b>
