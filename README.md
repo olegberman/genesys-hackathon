@@ -12,7 +12,7 @@ Imagine if I was Jim and check out this demo... `demoing...`
 - Facebook knows my phone number
 - I want to change my password
 - Facebook gives me a number to call
-- I call them
+- I call Facebook
 - I need to hang on until I'm done changing the password
 - *I change my password*
 - I'm done, and I hang up
@@ -30,10 +30,7 @@ Jim should be able to login to IMDB using Facebook.
 - IMDB doesn't and shouldn't know my number
 - I want to login into IMDB
 - I click login with Facebook
-- IMDB gives me their Facebook app id
 - I call Facebook
-- They ask me to enter the third party id
-- I enter it
 - Get back a code for a short session
 - Enter it on IMDB
 - IMDB now can fetch my Facebook info using that token and give me better recommendations

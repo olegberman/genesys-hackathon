@@ -4,6 +4,7 @@
   "description": "We have made an extension for identity providers. An identity provider can be any service that has information about you. Good examples would be Facebook, Rogers or even Service Canada.",
   "main": "server/index.js",
   "dependencies": {
+    "body-parser": "^1.14.0",
     "cookie-parser": "^1.4.0",
     "express": "^4.13.3"
   },
