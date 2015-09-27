@@ -1,42 +1,36 @@
-We have made an extension for identity providers. An identity provider can be any
-service that has information about you.
+We are going to show you how third party products could use Genesys for two factor authorization and authentication.
+
+An identity provider in this case could be any service that has some information about you (phone number).
 Good examples would be Facebook, Rogers or even Service Canada.
 
-Let me give you a couple of use-cases:
+Let me give you a demo in case of facebook. 
 
-> Jim is registered on Facebook, and wants to securely change his password. Facebook can double-check Jim's identity using phone.
+First of all, imagine this was Facebook. 
 
-Imagine if I was Jim and check out this demo... `demoing...`
+> I have an account on Facebook, and I want to change my password in simple and secure way. 
 
 - I log in with my username and password
-- Facebook knows my phone number
 - I want to change my password
 - Facebook gives me a number to call
+- Keep in mind that Facebook knows my phone number and so Genesys, so they can verify my identity
 - I call Facebook
+- The field with new password now unlocks
 - I need to hang on until I'm done changing the password
 - *I change my password*
 - I'm done, and I hang up
 
-** What to do **
+I'm going to show you another quick demo before we go:
 
-1. Login page
-2. Profile page (with change password popup and our auth service)
-3. Auth API, update password API
+- Imagine if this was IMDB, that would suggest you movies based on your favorite movies that you specified on Facebook
+- I go to IMDB and click "Login With Facebook"
+- Because I was already logged into Facebook now I recieve a 4 digit code that I can now use to procceed with the login on this third-party service
+- I enter the code and log in
+- I get the recommendations and IMDB is now using the info I provided on Facebook
 
-Jim wants to use IMDB (or any other third-party service),
-and IMDB needs Jim's identity to give him better recommendations.
-Jim should be able to login to IMDB using Facebook.
+Thank you guys very much!
 
-- IMDB doesn't and shouldn't know my number
-- I want to login into IMDB
-- I click login with Facebook
-- I call Facebook
-- Get back a code for a short session
-- Enter it on IMDB
-- IMDB now can fetch my Facebook info using that token and give me better recommendations
+http://twitter.com/hermanhasawish
+http://twitter.com/olegberman
 
-** What to do **
-
-1. IMDB mock
-2. Login page
-3. Recommendations page
+http://github.com/hermanya
+http://github.com/olegberman
