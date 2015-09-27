@@ -7,7 +7,7 @@ var express = require('express'),
     }];
 
 app.use(require('cookie-parser')());
-app.use(express.static(__dirname + '/../client'));
+app.use(express.static(__dirname + '/../client', { maxAge: 1 }));
 
 app.get('/session', function(req, res) {
     id = '666';
@@ -17,6 +17,6 @@ app.get('/session', function(req, res) {
 
 app.get('/user', function (req, res) {
     res.send('id is ' + req.cookies.uid);
-})
+});
 
 app.listen(8080);
