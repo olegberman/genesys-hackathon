@@ -13,7 +13,7 @@ var express = require('express'),
     getUser = function (req) {
         if (req.cookies.uid) {
             return users.filter(function (user) {
-                return user.id === req.cookies.uid
+                return user.id === Number(req.cookies.uid);
             })[0];
         } else if (req.query.token) {
             return tokenToUser[req.query.token];
@@ -28,10 +28,10 @@ app.use(express.static(__dirname + '/../client', { maxAge: 1 }));
 app.post('/api/session', function(req, res) {
     var user = users.filter(function (user) {
         return user.username === req.body.username && user.password === req.body.password;
-    });
+    })[0];
     if (user) {
         res.cookie('uid', user.id);
-        res.sendStatus(200);
+        res.json(user);
     } else {
         res.cookie('uid', '');
         res.sendStatus(401);
