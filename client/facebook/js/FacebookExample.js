@@ -19,7 +19,7 @@ angular.module('FacebookExample', [])
     var interval = setInterval(function() {
       var checkPhoneRequest = $http.get('/api/user');
       checkPhoneRequest.then(function(user) {
-        if(user.data.isOnThePhone) {
+        if(user.data.isOnThePhone === 'true') {
           $scope.isOnThePhone = true;
           clearInterval(interval);
           interval = null;

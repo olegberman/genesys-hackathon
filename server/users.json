@@ -1,0 +1,33 @@
+[
+    {
+        "id": 1,
+        "username": "olegBerman",
+        "firstName": "oleg",
+        "lastName": "berman",
+        "password": "password",
+        "photo": "https://avatars1.githubusercontent.com/u/6267340",
+        "phoneNumber": "+12894004192",
+        "recommendations": [
+            {
+                "image": "http://ia.media-imdb.com/images/M/MV5BMjE3MDU2NzQyMl5BMl5BanBnXkFtZTgwMzQxMDQ3NTE@._V1_SX214_AL_.jpg",
+                "name": "Maze Runner"
+            },
+            {
+                "image": "http://ia.media-imdb.com/images/M/MV5BNzg0ODI3NDQxNF5BMl5BanBnXkFtZTgwMzgzNDA0NjE@._V1_SX214_AL_.jpg",
+                "name": "Black Mass"
+            },
+            {
+                "image": "http://ia.media-imdb.com/images/M/MV5BMTg3OTM2OTc5MV5BMl5BanBnXkFtZTgwMjMxNDM0NTE@._V1_SX214_AL_.jpg",
+                "name": "The Visit"
+            },
+            {
+                "image": "http://ia.media-imdb.com/images/M/MV5BMjA4NzcwMTkzMF5BMl5BanBnXkFtZTgwMDAwNDUxNjE@._V1_SY317_CR0,0,214,317_AL_.jpg",
+                "name": "The Perfect Guy"
+            },
+            {
+                "image": "http://ia.media-imdb.com/images/M/MV5BMjMzMjIxOTIxMl5BMl5BanBnXkFtZTgwNTk4NDI0NjE@._V1_SX214_AL_.jpg",
+                "name": "Everest"
+            }
+        ]
+    }
+]
