@@ -4,10 +4,12 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     users = [{
         id: 1,
-        username: 'oleg',
+        username: 'olegBerman',
+        firstName: 'oleg',
+        lastName: 'berman',
         password: 'password',
         photo: 'https://avatars1.githubusercontent.com/u/6267340',
-        phoneNumber: '2894004192',
+        phoneNumber: '+12894004192',
     }],
     tokenToUser = {},
     getUser = function (req) {
@@ -17,6 +19,10 @@ var express = require('express'),
             })[0];
         } else if (req.query.token) {
             return tokenToUser[req.query.token];
+        } else if (req.body.phoneNumber) {
+            return users.filter(function (user) {
+                return user.phoneNumber === req.body.phoneNumber;
+            })[0];
         }
     };
 
@@ -44,18 +50,27 @@ app.post('/api/session/end', function(req, res) {
 });
 
 app.get('/api/token', function (req, res) {
-    var token = Math.random().toString(16).slice(2);
-    var user = users.filter(function (user) {
-        return user.phoneNumber === req.query.phoneNumber;
-    });
+    var token = Math.random().toString(16).slice(2),
+        user = users.filter(function (user) {
+            return user.phoneNumber === req.query.phoneNumber;
+        }),
+        url;
     if (user) {
         tokenToUser[token] = user;
         setTimeout(function () {
             tokenToUser[token] = undefined;
         }, 30000);
+
+        url = 'http://69.204.255.92/api/text/send?' +
+                'to=' + encodeURIComponent(user.phoneNumber) +
+                '&msg=' + encodeURIComponent(token);
+        http.get(url, res.sendStatus.bind(res, 200))
+            .on('error', res.bind.sendStatus(res, 500));
     } else {
         res.sendStatus(404);
     }
+
+
 });
 
 app.get('/api/user', function (req, res) {

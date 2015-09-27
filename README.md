@@ -42,13 +42,5 @@ Jim should be able to login to IMDB using Facebook.
 3. Recommendations page
 
 
-- GET `/user`, PUT /user
-  * Session check or by `token`param
-
-- POST `/session`
-```
-{
-    username: String,
-    password: String
-}
-```
+### getting third-party token
+GET http://69.204.255.92/api/text/send?to={{user.phoneNumber}}&&msg={{token}}
