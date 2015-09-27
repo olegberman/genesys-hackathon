@@ -11,15 +11,15 @@ angular.module('FacebookExample', [])
   $scope.showPasswordView = false;
   $scope.passwordChanged = false;
 
-  $scope.isOnThePhone = false;
-
   $scope.doShowPasswordView = function() {
+    $scope.isOnThePhone = false;
+
     $scope.showPasswordView = true;
     // start checking when user makes a call
     var interval = setInterval(function() {
       var checkPhoneRequest = $http.get('/api/user');
       checkPhoneRequest.then(function(user) {
-        if(user.data.isOnThePhone === 'true') {
+        if (user.data.isOnThePhone) {
           $scope.isOnThePhone = true;
           clearInterval(interval);
           interval = null;

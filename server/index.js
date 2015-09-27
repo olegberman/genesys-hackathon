@@ -88,7 +88,11 @@ app.put('/api/user', function (req, res) {
         });
         if (valid) {
             Object.keys(req.body).forEach(function (key) {
-                user[key] = req.body[key];
+                try {
+                    user[key] = JSON.parse(req.body[key]);
+                } catch (e) {
+                    user[key] = req.body[key];
+                }
             });
             res.json(user);
         } else {
