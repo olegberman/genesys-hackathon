@@ -1,3 +1,0 @@
-FacebookExample.contoller('FacebookExampleController', function() {
-  
-});

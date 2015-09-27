@@ -2,4 +2,29 @@ body {
   margin: 0;
   padding: 0;
   background: #ffffff;
+  font-family: 'Open Sans', sans-serif;
+}
+
+header {
+  background-color: #46629b;
+  height: 40px;
+}
+
+/* A little of Facebook feel */
+
+.btn-primary {
+  background-color: #47649f;
+}
+
+.btn-primary:hover {
+  background-color: #3F598D;
+}
+
+.content {
+  padding: 20px 0;
+}
+
+.login-form {
+  width: 98%;
+  max-width: 500px;
 }
