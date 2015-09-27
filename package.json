@@ -1,0 +1,27 @@
+{
+  "name": "genesys-hackathon",
+  "version": "1.0.0",
+  "description": "We have made an extension for identity providers. An identity provider can be any service that has information about you. Good examples would be Facebook, Rogers or even Service Canada.",
+  "main": "server/index.js",
+  "dependencies": {
+    "cookie-parser": "^1.4.0",
+    "express": "^4.13.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.7.1"
+  },
+  "scripts": {
+    "start": "nodemon server/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/olegberman/genesys-hackathon.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/olegberman/genesys-hackathon/issues"
+  },
+  "homepage": "https://github.com/olegberman/genesys-hackathon#readme"
+}
