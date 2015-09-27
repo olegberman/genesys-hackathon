@@ -1,9 +1,12 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #000000;
   font-family: 'Open Sans', sans-serif;
   color: #ffffff;
+  background-color: #000000;
+  background-image: url(https://blogs.chapman.edu/wp-content/uploads/sites/26/2014/11/il_fullxfull.373573585_fune.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 footer {
