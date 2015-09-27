@@ -40,9 +40,9 @@ app.post('/api/session', function(req, res) {
     }
 });
 
-app.post('/api/session/end', function(req, res) {
+app.get('/api/session/end', function(req, res) {
     res.cookie('uid', '');
-    res.redirect('/');
+    res.redirect('/facebook');
 });
 
 app.get('/api/token', function (req, res) {
@@ -76,28 +76,13 @@ app.get('/api/user', function (req, res) {
 app.put('/api/user', function (req, res) {
     var user = getUser(req);
     if (user) {
-        var valid = Object.keys(req.body).every(function (key) {
-            var isValid = {
-                password: function () {
-                    return user.isOnThePhone;
-                }
-            } [key] || function () {
-                return true;
-            };
-            return isValid();
+        Object.keys(req.body).forEach(function (key) {
+            try {
+                user[key] = JSON.parse(req.body[key]);
+            } catch (e) {
+                user[key] = req.body[key];
+            }
         });
-        if (valid) {
-            Object.keys(req.body).forEach(function (key) {
-                try {
-                    user[key] = JSON.parse(req.body[key]);
-                } catch (e) {
-                    user[key] = req.body[key];
-                }
-            });
-            res.json(user);
-        } else {
-            res.sendStatus(403);
-        }
     } else {
         res.sendStatus(404);
     }
