@@ -1,6 +1,12 @@
-<section ng-if="!isAuthorized && !codeSent">
+<section ng-if="!isAuthorized">
   <div class="login-button-wrap center-block text-center">
     <h3>Too see movie recommendations log in first</h3>
-    <button class="btn btn-primary center-block login-with-button">Log in with Facebook</button>
+    <button class="btn btn-primary center-block login-with-button"
+    ng-click="requestCode()" ng-if="!codeSent">Log in with Facebook</button>
+    <div ng-if="codeSent">
+      <h2>Your authorization code</h2>
+      <input type="text" class="code-input" ng-model="code" />
+      <button class="btn btn-primary center-block login-button" ng-click="login(code)">Log in</button>
+    </div>
   </div>
 </section>

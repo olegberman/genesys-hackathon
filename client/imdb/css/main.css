@@ -26,3 +26,56 @@ h1, h2, h3, h4, h5, p {
 .login-with-button {
   margin-top: 40px;
 }
+
+.code-input {
+  width: 90%;
+  max-width: 200px;
+  height: 40px;
+  font-size: 25px;
+  text-align: center;
+  border: 0;
+  border-radius: 4px;
+  outline: none;
+  color: #999;
+  box-shadow: 0 0 3px #0080FF;
+}
+
+.rec-page {
+  width: 100%;
+  max-width: 700px;
+  margin-top: 40px;
+}
+
+.code-input:focus {
+  border: 2px solid #0080FF;
+}
+
+.login-button {
+  margin-top: 20px;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.user-image {
+  border-radius: 4px;
+}
+
+.rec-wrapper {
+  height: 215px;
+  margin-top: 50px;
+}
+
+.rec {
+  padding: 5px;
+  background-color: #999999;
+  border-radius: 4px;
+  margin: 5px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.rec:hover {
+  transform: scale(1.2);
+}
