@@ -3,40 +3,19 @@ var http = require('http'),
     app = express(),
     cookieParser = require('cookie-parser'),
     bodyParser = require('body-parser'),
-    users = [{
-        id: 1,
-        username: 'olegBerman',
-        firstName: 'oleg',
-        lastName: 'berman',
-        password: 'password',
-        photo: 'https://avatars1.githubusercontent.com/u/6267340',
-        phoneNumber: '+12894004192',
-        recommendations: [{
-            image: 'http://ia.media-imdb.com/images/M/MV5BMjE3MDU2NzQyMl5BMl5BanBnXkFtZTgwMzQxMDQ3NTE@._V1_SX214_AL_.jpg',
-            name: 'Maze Runner: The Scorch Trials'
-        }, {
-            image: 'http://ia.media-imdb.com/images/M/MV5BNzg0ODI3NDQxNF5BMl5BanBnXkFtZTgwMzgzNDA0NjE@._V1_SX214_AL_.jpg',
-            name: 'Black Mass'
-        }, {
-            image: 'http://ia.media-imdb.com/images/M/MV5BMTg3OTM2OTc5MV5BMl5BanBnXkFtZTgwMjMxNDM0NTE@._V1_SX214_AL_.jpg',
-            name: 'The Visit'
-        }, {
-            image: 'http://ia.media-imdb.com/images/M/MV5BMjA4NzcwMTkzMF5BMl5BanBnXkFtZTgwMDAwNDUxNjE@._V1_SY317_CR0,0,214,317_AL_.jpg',
-            name: 'The Perfect Guy'
-        }, {
-            image: 'http://ia.media-imdb.com/images/M/MV5BMjMzMjIxOTIxMl5BMl5BanBnXkFtZTgwNTk4NDI0NjE@._V1_SX214_AL_.jpg',
-            name: 'Everest'
-        }]
-    }],
+    users = require(__dirname + '/users.json'),
     tokenToUser = {},
     getUser = function (req) {
         if (req.cookies.uid) {
+        //  IDP
             return users.filter(function (user) {
                 return user.id === Number(req.cookies.uid);
             })[0];
         } else if (req.query.token) {
+        //  Third-parties
             return tokenToUser[req.query.token];
         } else if (req.body.phoneNumber) {
+        //  Genesys Designer
             return users.filter(function (user) {
                 return user.phoneNumber === req.body.phoneNumber;
             })[0];
@@ -75,7 +54,6 @@ app.get('/api/token', function (req, res) {
         setTimeout(function () {
             tokenToUser[token] = undefined;
         }, 30000);
-
         url = 'http://69.204.255.92/api/text/send?' +
                 'to=' + encodeURIComponent(user.phoneNumber) +
                 '&msg=' + encodeURIComponent(token);
@@ -84,8 +62,6 @@ app.get('/api/token', function (req, res) {
     } else {
         res.sendStatus(404);
     }
-
-
 });
 
 app.get('/api/user', function (req, res) {
@@ -96,7 +72,6 @@ app.get('/api/user', function (req, res) {
         res.sendStatus(404);
     }
 });
-
 
 app.put('/api/user', function (req, res) {
     var user = getUser(req);
