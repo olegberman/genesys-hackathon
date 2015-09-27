@@ -9,6 +9,7 @@ angular.module('FacebookExample', [])
   $scope.ajaxLoading = false;
 
   $scope.showPasswordView = false;
+  $scope.passwordChanged = false;
 
   $scope.isOnThePhone = false;
 
@@ -53,8 +54,7 @@ angular.module('FacebookExample', [])
       return;
     }
 
-    var loginRequest = $http.post('/api/session',
-      {
+    var loginRequest = $http.post('/api/session', {
         username: username,
         password: password
       }
@@ -74,7 +74,17 @@ angular.module('FacebookExample', [])
   };
 
   $scope.changePassword = function(passwordNew) {
-
+    $scope.ajaxLoading = true;
+    var changePasswordRequest = $http.put('/api/user', {
+      password: passwordNew
+    });
+    changePasswordRequest.then(function() {
+      $scope.ajaxLoading = false;
+      $scope.passwordChanged = true;
+      $scope.showPasswordView = false;
+    }, function() {
+      $scope.ajaxLoading = false;
+    });
   };
 
 });
