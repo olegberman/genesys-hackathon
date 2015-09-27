@@ -57,7 +57,7 @@ footer {
   max-width: 500px;
 }
 
-.profile {
+.content-fix {
   max-width: 751px;
   margin-top: 40px;
 }
@@ -85,4 +85,31 @@ footer {
 
 .btn-change-password {
   width: 100%;
+}
+
+.password-instructions, .password-new {
+  text-align: center;
+}
+
+.password-new-input {
+  width: 100%;
+  max-width: 600px;
+  height: 60px;
+  text-align: center;
+  font-size: 35px;
+  background-color: #ffffff;
+}
+
+.password-new-locked {
+  border: 2px solid #FF3366;
+  color: #FF0000;
+}
+
+.password-new-unlocked {
+  border: 2px solid #66FF33;
+  color: #555555;
+}
+
+.btn-new-password {
+  margin-top: 20px;
 }

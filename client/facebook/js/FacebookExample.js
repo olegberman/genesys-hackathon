@@ -8,6 +8,27 @@ angular.module('FacebookExample', [])
   $scope.hasSession  = false;
   $scope.ajaxLoading = false;
 
+  $scope.showPasswordView = false;
+
+  $scope.isOnThePhone = false;
+
+  $scope.doShowPasswordView = function() {
+    $scope.showPasswordView = true;
+    // start checking when user makes a call
+    var interval = setInterval(function() {
+      var checkPhoneRequest = $http.get('/api/user');
+      checkPhoneRequest.then(function(user) {
+        if(user.data.isOnThePhone) {
+          $scope.isOnThePhone = true;
+          clearInterval(interval);
+          interval = null;
+        }
+      }, function() {
+
+      });
+    }, 1000);
+  };
+
   var getUser = function() {
     var userRequest = $http.get('/api/user');
     userRequest.then(function(user) {
@@ -49,6 +70,10 @@ angular.module('FacebookExample', [])
       $scope.passwordInvalid = true;
       $scope.ajaxLoading = false;
     });
+
+  };
+
+  $scope.changePassword = function(passwordNew) {
 
   };
 

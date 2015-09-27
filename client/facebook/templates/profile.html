@@ -1,5 +1,5 @@
-<section ng-if="user">
-  <div class="container-fluid profile block-center">
+<section ng-if="user && !showPasswordView">
+  <div class="container-fluid content-fix block-center">
     <div class="row">
       <div class="col-xs-4">
         <img ng-src="{{ user.photo }}" class="img-responsive user-photo" />
@@ -14,9 +14,7 @@
         </p>
         <div class="row">
           <div class="col-xs-12">
-            <button type="button" class="btn btn-change-password btn-primary">
-              Change password
-            </button>
+            <button type="button" class="btn btn-change-password btn-primary" ng-click="doShowPasswordView()">Change password</button>
           </div>
         </div>
       </div>
